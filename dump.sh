@@ -1,1 +1,1 @@
-pg_dump -U pi --blobs --verbose --file db.sql fin_db
+pg_dump --schema-only --verbose --file schema.sql fin_db

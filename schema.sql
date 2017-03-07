@@ -4,7 +4,7 @@
 
 -- Dumped from database version 9.4.10
 -- Dumped by pg_dump version 9.4.10
--- Started on 2017-03-05 20:47:15 MSK
+-- Started on 2017-03-08 00:24:29 MSK
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -14,7 +14,7 @@ SET check_function_bodies = false;
 SET client_min_messages = warning;
 
 --
--- TOC entry 8 (class 2615 OID 16410)
+-- TOC entry 7 (class 2615 OID 16501)
 -- Name: fin_tbls; Type: SCHEMA; Schema: -; Owner: pi
 --
 
@@ -32,7 +32,7 @@ CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 
 
 --
--- TOC entry 2036 (class 0 OID 0)
+-- TOC entry 2030 (class 0 OID 0)
 -- Dependencies: 1
 -- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
 --
@@ -47,7 +47,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- TOC entry 177 (class 1259 OID 16428)
+-- TOC entry 174 (class 1259 OID 16502)
 -- Name: account_type; Type: TABLE; Schema: fin_tbls; Owner: pi; Tablespace: 
 --
 
@@ -60,7 +60,7 @@ CREATE TABLE account_type (
 ALTER TABLE account_type OWNER TO pi;
 
 --
--- TOC entry 176 (class 1259 OID 16426)
+-- TOC entry 175 (class 1259 OID 16505)
 -- Name: account_type_acc_id_seq; Type: SEQUENCE; Schema: fin_tbls; Owner: pi
 --
 
@@ -75,8 +75,8 @@ CREATE SEQUENCE account_type_acc_id_seq
 ALTER TABLE account_type_acc_id_seq OWNER TO pi;
 
 --
--- TOC entry 2037 (class 0 OID 0)
--- Dependencies: 176
+-- TOC entry 2031 (class 0 OID 0)
+-- Dependencies: 175
 -- Name: account_type_acc_id_seq; Type: SEQUENCE OWNED BY; Schema: fin_tbls; Owner: pi
 --
 
@@ -84,7 +84,7 @@ ALTER SEQUENCE account_type_acc_id_seq OWNED BY account_type.acc_id;
 
 
 --
--- TOC entry 175 (class 1259 OID 16422)
+-- TOC entry 176 (class 1259 OID 16507)
 -- Name: expence_categorie; Type: TABLE; Schema: fin_tbls; Owner: pi; Tablespace: 
 --
 
@@ -97,7 +97,7 @@ CREATE TABLE expence_categorie (
 ALTER TABLE expence_categorie OWNER TO pi;
 
 --
--- TOC entry 174 (class 1259 OID 16420)
+-- TOC entry 177 (class 1259 OID 16510)
 -- Name: expence_categorie_cat_id_seq; Type: SEQUENCE; Schema: fin_tbls; Owner: pi
 --
 
@@ -112,8 +112,8 @@ CREATE SEQUENCE expence_categorie_cat_id_seq
 ALTER TABLE expence_categorie_cat_id_seq OWNER TO pi;
 
 --
--- TOC entry 2038 (class 0 OID 0)
--- Dependencies: 174
+-- TOC entry 2032 (class 0 OID 0)
+-- Dependencies: 177
 -- Name: expence_categorie_cat_id_seq; Type: SEQUENCE OWNED BY; Schema: fin_tbls; Owner: pi
 --
 
@@ -121,7 +121,7 @@ ALTER SEQUENCE expence_categorie_cat_id_seq OWNED BY expence_categorie.cat_id;
 
 
 --
--- TOC entry 179 (class 1259 OID 16479)
+-- TOC entry 178 (class 1259 OID 16512)
 -- Name: transactions; Type: TABLE; Schema: fin_tbls; Owner: pi; Tablespace: 
 --
 
@@ -138,7 +138,7 @@ CREATE TABLE transactions (
 ALTER TABLE transactions OWNER TO pi;
 
 --
--- TOC entry 178 (class 1259 OID 16477)
+-- TOC entry 179 (class 1259 OID 16518)
 -- Name: transactions_trn_id_seq; Type: SEQUENCE; Schema: fin_tbls; Owner: pi
 --
 
@@ -153,8 +153,8 @@ CREATE SEQUENCE transactions_trn_id_seq
 ALTER TABLE transactions_trn_id_seq OWNER TO pi;
 
 --
--- TOC entry 2039 (class 0 OID 0)
--- Dependencies: 178
+-- TOC entry 2033 (class 0 OID 0)
+-- Dependencies: 179
 -- Name: transactions_trn_id_seq; Type: SEQUENCE OWNED BY; Schema: fin_tbls; Owner: pi
 --
 
@@ -162,7 +162,7 @@ ALTER SEQUENCE transactions_trn_id_seq OWNED BY transactions.trn_id;
 
 
 --
--- TOC entry 1902 (class 2604 OID 16431)
+-- TOC entry 1901 (class 2604 OID 16520)
 -- Name: acc_id; Type: DEFAULT; Schema: fin_tbls; Owner: pi
 --
 
@@ -170,7 +170,7 @@ ALTER TABLE ONLY account_type ALTER COLUMN acc_id SET DEFAULT nextval('account_t
 
 
 --
--- TOC entry 1901 (class 2604 OID 16425)
+-- TOC entry 1902 (class 2604 OID 16521)
 -- Name: cat_id; Type: DEFAULT; Schema: fin_tbls; Owner: pi
 --
 
@@ -178,7 +178,7 @@ ALTER TABLE ONLY expence_categorie ALTER COLUMN cat_id SET DEFAULT nextval('expe
 
 
 --
--- TOC entry 1903 (class 2604 OID 16482)
+-- TOC entry 1903 (class 2604 OID 16522)
 -- Name: trn_id; Type: DEFAULT; Schema: fin_tbls; Owner: pi
 --
 
@@ -186,73 +186,7 @@ ALTER TABLE ONLY transactions ALTER COLUMN trn_id SET DEFAULT nextval('transacti
 
 
 --
--- TOC entry 2026 (class 0 OID 16428)
--- Dependencies: 177
--- Data for Name: account_type; Type: TABLE DATA; Schema: fin_tbls; Owner: pi
---
-
-COPY account_type (acc_id, account) FROM stdin;
-1	наличные
-2	кредитная карта
-3	дебетная карта
-4	зарплатная карта
-\.
-
-
---
--- TOC entry 2040 (class 0 OID 0)
--- Dependencies: 176
--- Name: account_type_acc_id_seq; Type: SEQUENCE SET; Schema: fin_tbls; Owner: pi
---
-
-SELECT pg_catalog.setval('account_type_acc_id_seq', 4, true);
-
-
---
--- TOC entry 2024 (class 0 OID 16422)
--- Dependencies: 175
--- Data for Name: expence_categorie; Type: TABLE DATA; Schema: fin_tbls; Owner: pi
---
-
-COPY expence_categorie (cat_id, categorie) FROM stdin;
-1	Автомобиль
-2	Продукты
-3	развлечения
-4	Кафе и рестораны
-5	Обед на работе
-6	Инвестиции
-7	Бензин
-8	Учёба
-9	Промтовары
-10	Подарки
-11	Квартплата
-12	Банк.комиссия
-13	Мобильник
-14	Интернет
-15	Парковка
-16	Медицина
-17	Транспорт
-18	Услуги
-19	самолет
-20	Гостиница
-21	Поезд
-22	Другое
-23	Спорт
-24	Чаевые
-\.
-
-
---
--- TOC entry 2041 (class 0 OID 0)
--- Dependencies: 174
--- Name: expence_categorie_cat_id_seq; Type: SEQUENCE SET; Schema: fin_tbls; Owner: pi
---
-
-SELECT pg_catalog.setval('expence_categorie_cat_id_seq', 24, true);
-
-
---
--- TOC entry 1907 (class 2606 OID 16444)
+-- TOC entry 1905 (class 2606 OID 16524)
 -- Name: account_type_pkey; Type: CONSTRAINT; Schema: fin_tbls; Owner: pi; Tablespace: 
 --
 
@@ -261,7 +195,7 @@ ALTER TABLE ONLY account_type
 
 
 --
--- TOC entry 1905 (class 2606 OID 16446)
+-- TOC entry 1907 (class 2606 OID 16526)
 -- Name: expence_categorie_pkey; Type: CONSTRAINT; Schema: fin_tbls; Owner: pi; Tablespace: 
 --
 
@@ -270,7 +204,7 @@ ALTER TABLE ONLY expence_categorie
 
 
 --
--- TOC entry 1909 (class 2606 OID 16487)
+-- TOC entry 1909 (class 2606 OID 16528)
 -- Name: transactions_pkey; Type: CONSTRAINT; Schema: fin_tbls; Owner: pi; Tablespace: 
 --
 
@@ -279,7 +213,7 @@ ALTER TABLE ONLY transactions
 
 
 --
--- TOC entry 1910 (class 1259 OID 16488)
+-- TOC entry 1910 (class 1259 OID 16529)
 -- Name: trn_fk1; Type: INDEX; Schema: fin_tbls; Owner: pi; Tablespace: 
 --
 
@@ -287,7 +221,7 @@ CREATE INDEX trn_fk1 ON transactions USING btree (account);
 
 
 --
--- TOC entry 1911 (class 1259 OID 16489)
+-- TOC entry 1911 (class 1259 OID 16530)
 -- Name: trn_fk2; Type: INDEX; Schema: fin_tbls; Owner: pi; Tablespace: 
 --
 
@@ -295,7 +229,7 @@ CREATE INDEX trn_fk2 ON transactions USING btree (categorie);
 
 
 --
--- TOC entry 1912 (class 2606 OID 16490)
+-- TOC entry 1912 (class 2606 OID 16531)
 -- Name: acc_fk; Type: FK CONSTRAINT; Schema: fin_tbls; Owner: pi
 --
 
@@ -304,7 +238,7 @@ ALTER TABLE ONLY transactions
 
 
 --
--- TOC entry 1913 (class 2606 OID 16495)
+-- TOC entry 1913 (class 2606 OID 16536)
 -- Name: cat_fk; Type: FK CONSTRAINT; Schema: fin_tbls; Owner: pi
 --
 
@@ -313,8 +247,8 @@ ALTER TABLE ONLY transactions
 
 
 --
--- TOC entry 2035 (class 0 OID 0)
--- Dependencies: 6
+-- TOC entry 2029 (class 0 OID 0)
+-- Dependencies: 8
 -- Name: public; Type: ACL; Schema: -; Owner: postgres
 --
 
@@ -324,7 +258,7 @@ GRANT ALL ON SCHEMA public TO postgres;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
--- Completed on 2017-03-05 20:47:15 MSK
+-- Completed on 2017-03-08 00:24:29 MSK
 
 --
 -- PostgreSQL database dump complete
